@@ -5,7 +5,7 @@ class Student{
 	public int no;
 	Student(int cno,String cname,char csex,int cage){
 		name=cname;
-		sex=csax;
+		sex=csex;
 		age=cage;
 		no=cno;
 	}
