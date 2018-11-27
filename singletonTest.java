@@ -1,5 +1,5 @@
 
-
+//饿汉式单例设计模式
 class Singleton{
 	private static Singleton instance=new Singleton();//在类的内部产生实例化对象
 	//private singleton(){//private 声明构造
