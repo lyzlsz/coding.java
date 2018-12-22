@@ -1,21 +1,40 @@
-abstract class A{
-public A(){ //3.调用父类构造
-this.print() ; //4.调用被子类覆写的方法
+package com.bittech;
+
+import java.lang.reflect.Field;
+
+/**
+ * Author:weiwei
+ * Creat:2018/12/22
+ **/
+
+class MyClass <T,E>{
+    private T message;
+    private E text;
+
+    public E getText() {
+        return text;
+    }
+    public void setText(E text){
+        this.text=text;
+    }
+    public T getMessage(){
+        return message;
+    }
+    public void setMessage(T message){
+        this.message=message;
+    }
+    public void testMethod1(T t){
+        System.out.println(t);
+    }
 }
-public abstract void print() ;
-}
-class B extends A{
-private int num = 100 ;
-public B(int num) { //2.调用子类实例化对象
-//super() ; //3.隐含一行语句，实际要先调用父类构造
-this.num = num ; //7.为类中属性初始化
-}
-public void print() { //5.此时子类对象的属性还没有被初始化
-System.out.println(this.num) ; //6.对应其数据类型的默认值
-}
-}
-public class Test{
-public static void main(String[] args) {
-new B(30); //1.实例化子类对象
-}
+public class Test {
+    public static void main(String[] args) {
+        MyClass<String,Integer> myClass1=new MyClass<>();
+        Class cls= myClass1.getClass();
+        Field[] fields = cls.getDeclaredFields();
+        for(Field field : fields){
+            System.out.println(field.getType());
+        }
+    }
+
 }
